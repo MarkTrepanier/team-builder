@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Form from './Form';
+import Axios from 'axios'
 
 //team values: name, age, role, tag, senior
 const initialTeam = [
@@ -32,6 +33,13 @@ function App() {
       senior: formData.senior,
       email: formData.email
     }
+
+    // Axios.post('fakeapi.com',newTM)
+    // .then(resp=>{
+    //   const idunno = resp.data;
+    //   setTeamMemebrs([resp.data, ...teamMembers])
+    // })
+    setTeamMemebrs(teamMembers.concat(newTM));
   }
 
   return (
