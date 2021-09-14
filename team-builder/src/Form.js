@@ -7,9 +7,13 @@ export default function Form(props){
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+        label{
+            margin:5px;
+        }
     `
     return(
     <FormStyle className='formContainer'>
+        <h2>Team Form</h2>
         <label>{'name '} 
             <input type='text' name= 'name' placeholder='Juan Smith'/>
         </label>
@@ -34,6 +38,8 @@ export default function Form(props){
         <label>{'nickname '} 
             <input type='text' name= 'tag' placeholder='CanOnlyBJuan'/>
         </label>
+
+        <input type='submit' value='Add Team Member'/>
     </FormStyle>
     )
 }

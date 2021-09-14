@@ -5,24 +5,48 @@ import Form from './Form';
 
 //team values: name, age, role, tag, senior
 const initialTeam = [
-  {name:'Tom',age: '34',role: 'front-end',tag: 'Carrots',senior: true},
-  {name:'Lou',age: '35',role: 'back-end',tag: 'anti-lou',senior: true},
-  {name:'Ericka',age: '26',role: 'designer',tag: 'Chibi',senior: false},
-  {name:'Morgan',age: '28',role: 'designer',tag: 'Gunz',senior: true},
-  {name:'lorelei',age: '2',role: 'tester',tag: '',senior: false},
-  {name:'Alberto',age: '32',role: 'tester',tag: 'Lethargiry',senior: true}
+  {name:'Tom', role: 'front-end',tag: 'Carrots',senior: true, email:''},
+  {name:'Lou', role: 'back-end',tag: 'anti-lou',senior: true, email:''},
+  {name:'Ericka', role: 'designer',tag: 'Chibi',senior: false, email:''},
+  {name:'Morgan', role: 'designer',tag: 'Gunz',senior: true, email:''},
+  {name:'lorelei', role: 'tester',tag: '',senior: false, email:''},
+  {name:'Alberto', role: 'tester',tag: 'Lethargiry',senior: true, email:''}
 ]
+const initialFormData={
+  name:'', role: '', tag: '', senior: false, email: ''
+}
+
+//APP
 function App() {
-  const [teamMembers, setTeamMemebrs] = useState(initialTeam)
+  const [teamMembers, setTeamMemebrs] = useState(initialTeam);
+  const [formData, setFormData] = useState(initialFormData);
+
+  const updateForm =(inputName, inputValue)=>{
+    setFormData({...formData, [inputName]:inputValue});
+  }
+  const submitForm=()=>{
+    const newTM={
+      name:formData.name,
+      role: formData.role,
+      tag: formData.tag,
+      senior: formData.senior,
+      email: formData.email
+    }
+  }
+
   return (
     <div className="App">
-      <h1 className='title'>3 Decker Team</h1>
+      <h1 className='title' handle>3 Decker Team</h1>
      {teamMembers.map((tm,idx)=>{
        return(
        <h2 key={idx}>{tm.name} {tm.tag ? `or ${tm.tag}`: ''}: our {tm.senior ? 'senior ':''}{tm.role}</h2>
        )
      })}
-     <Form/>
+     <Form 
+      update={updateForm}
+      submit={submitForm}
+      values={formData}
+    />
     </div>
   );
 }
