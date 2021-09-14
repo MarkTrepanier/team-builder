@@ -6,7 +6,7 @@ export default function Form(props){
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-items: flex-start4;
+        align-items: flex-start;
     `
     return(
     <FormStyle className='formContainer'>
