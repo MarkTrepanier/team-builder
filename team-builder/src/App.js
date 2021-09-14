@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
+import Form from './Form';
 
 //team values: name, age, role, tag, senior
 const initialTeam = [
@@ -21,6 +22,7 @@ function App() {
        <h2 key={idx}>{tm.name} {tm.tag ? `or ${tm.tag}`: ''}: our {tm.senior ? 'senior ':''}{tm.role}</h2>
        )
      })}
+     <Form/>
     </div>
   );
 }
